@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CenterRoom.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Boss 1.unity
+    guid: 3477580bd94a5e14f9102130b41ac26c
+  - enabled: 1
+    path: Assets/Scenes/Boss 2.unity
+    guid: ae937836655e9164eb3037ae03ebd773
+  - enabled: 1
+    path: Assets/Scenes/Boss 3.unity
+    guid: e6136756416a9e741a2856476f6d4d6d
   m_configObjects: {}

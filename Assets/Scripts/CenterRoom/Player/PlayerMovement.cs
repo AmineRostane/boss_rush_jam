@@ -52,8 +52,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnMove(InputValue inputValue)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        movInput= inputValue.Get<Vector2>();
+        movInput = context.ReadValue<Vector2>();
     }
+
+   
 }
