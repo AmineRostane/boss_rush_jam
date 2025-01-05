@@ -9,20 +9,19 @@ public class BossSelection : MonoBehaviour
     private static float[] probabilities = { 1f / 3f, 1f / 3f, 1f / 3f }; // Initial equal probabilities
     [SerializeField] private float reductionFactor = 0.5f;
 
-    private static int selectionCount = 0; // Tracks how many times a boss has been selected
-    private const int resetThreshold = 3;
+  
 
     // Start is called before the first frame update
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         //Debug.Log($"1st probas: Probabilities: Boss1={probabilities[0]:F2}, Boss2={probabilities[1]:F2}, Boss3={probabilities[2]:F2}");
     }
 
     public void SelectBoss()
     {
        
-        if (selectionCount >= resetThreshold)
+        if (GameManager.currentRound >= GameManager.maxRound)
         {
             ResetProbabilities();
             Debug.Log($"1st probas: Probabilities: Boss1={probabilities[0]:F2}, Boss2={probabilities[1]:F2}, Boss3={probabilities[2]:F2}");
@@ -72,8 +71,8 @@ public class BossSelection : MonoBehaviour
             probabilities[i] /= total;
         }
 
-        selectionCount++;
-        Debug.Log("selection count " + selectionCount);
+        GameManager.currentRound++;
+        Debug.Log("round " + GameManager.currentRound);
         Debug.Log($"Probabilities: Boss1={probabilities[0]:F2}, Boss2={probabilities[1]:F2}, Boss3={probabilities[2]:F2}");
 
     }
@@ -81,7 +80,7 @@ public class BossSelection : MonoBehaviour
     private void ResetProbabilities()
     {
         probabilities = new float[] { 1f / 3f, 1f / 3f, 1f / 3f }; // Reset to equal probabilities
-        selectionCount = 0; // Reset selection count
+        GameManager.currentRound = 0; // Reset selection count
         Debug.Log("Probabilities Reset");
     }
 
